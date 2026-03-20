@@ -1,0 +1,371 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>prestige</title>
+    <link rel="stylesheet" href="./dist/output.css" />
+    <style>
+      .circle {
+        stroke-dasharray: 251;
+        stroke-dashoffset: 251;
+        stroke-linecap: round;
+        animation: drawSpin 1.5s ease forwards;
+      }
+      @keyframes drawSpin {
+        to {
+          stroke-dashoffset: 0;
+        }
+      }
+      .animate-spin-slow {
+        animation: spin 3s linear infinite;
+      }
+      .delay-200 {
+        animation-delay: 0.2s;
+      }
+      .delay-400 {
+        animation-delay: 0.4s;
+      }
+      .blur {
+        filter: blur(6px);
+        pointer-events: none;
+      }
+    </style>
+  </head>
+  <body class="w-full h-full font-serif overflow-x-hidden">
+    <!-- Loader remains the same -->
+    <div
+      id="loader"
+      class="fixed inset-0 z-50 flex flex-col items-center justify-center bg-white"
+    >
+      <svg
+        viewBox="0 0 100 100"
+        class="w-20 h-20 md:w-28 md:h-28 animate-spin-slow"
+      >
+        <circle
+          cx="50"
+          cy="50"
+          r="40"
+          class="stroke-blue-500 `stroke-4` fill-none circle"
+        ></circle>
+        <circle
+          cx="50"
+          cy="50"
+          r="30"
+          class="stroke-green-500  `stroke-4`fill-none circle delay-200"
+        ></circle>
+        <circle
+          cx="50"
+          cy="50"
+          r="20"
+          class="stroke-yellow-500  `stroke-4`fill-none circle delay-400"
+        ></circle>
+      </svg>
+      <p class="text-xl md:text-2xl font-bold mt-4">loading...</p>
+    </div>
+
+    <div id="home">
+      <!-- Header: Stacked on mobile, row on desktop -->
+      <header
+        class="flex flex-col md:flex-row items-center justify-between p-4 gap-4"
+      >
+        <h1 class="text-3xl font-extrabold">Prestige</h1>
+        <nav class="hidden md:flex items-center gap-6">
+          <a href="#home" class="hover:text-amber-500">Home</a>
+          <a href="#products" class="hover:text-amber-500">Products</a>
+          <a href="#aboutus" class="hover:text-amber-500">About us</a>
+          <a href="#contactus" class="hover:text-amber-500">Contact us</a>
+        </nav>
+        <nav class="flex items-center w-full md:w-auto">
+          <input
+            type="search"
+            placeholder="search"
+            class="border p-2 rounded-l-2xl border-red-200 w-full md:w-48"
+          />
+          <button
+            type="button"
+            class="border border-l-0 p-2 rounded-r-2xl bg-gray-50"
+          >
+            <img
+              src="./mingcute--search-fill.svg"
+              alt="search"
+              class="w-5 h-5"
+            />
+          </button>
+        </nav>
+      </header>
+
+      <!-- Hero Section: Text sizes adjusted -->
+      <div
+        id="herosection"
+        class="h-screen bg-neutral-900 bg-cover bg-center flex flex-col justify-center items-center text-center px-4 gap-4"
+      >
+        <h4 class="text-4xl md:text-6xl text-white font-bold">
+          Welcome to Prestige
+        </h4>
+        <p class="text-lg md:text-xl text-white max-w-2xl">
+          Where luxury meets the moment. Discover our exclusive collection of
+          luxury timepieces.
+        </p>
+        <a
+          href="./sigin.html"
+          class="bg-amber-400 px-8 py-3 text-lg text-white rounded-full hover:bg-amber-500 transition"
+          >Shop Collection</a
+        >
+      </div>
+
+      <!-- Products Section -->
+      <div
+        id="products"
+        class="flex flex-col items-center bg-neutral-800 py-12 px-4"
+      >
+        <h4 class="text-4xl md:text-6xl text-white mb-8">Products</h4>
+
+        <!-- Product Grid: 1 col on mobile, 2 on tablet, 3 on desktop -->
+        <div
+          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-6xl"
+        >
+          <!-- Sample Product Card (Repeat this structure for others) -->
+          <div
+            class="flex flex-col items-center p-6 border-4 border-transparent shadow-lg bg-white rounded-2xl hover:border-amber-400 transition"
+          >
+            <img
+              src="./product1.jpg"
+              alt="Sapphire"
+              class="w-full h-64 object-contain mb-4"
+            />
+            <h5 class="text-xl font-bold">Sapphire</h5>
+            <p class="text-2xl text-gray-700 mb-4">$20000</p>
+            <a
+              href="./sigin.html"
+              class="bg-amber-400 py-2.5 w-full text-white rounded-xl text-center font-bold"
+              >Add To Cart</a
+            >
+          </div>
+
+          <!-- Product 2 -->
+          <div
+            class="flex flex-col items-center p-6 border-4 border-transparent shadow-lg bg-white rounded-2xl hover:border-amber-400 transition"
+          >
+            <img
+              src="./product2.jpg"
+              alt="Rolex"
+              class="w-full h-64 object-contain mb-4"
+            />
+            <h5 class="text-xl font-bold">Rolex</h5>
+            <p class="text-2xl text-gray-700 mb-4">$2000</p>
+            <a
+              href="./sigin.html"
+              class="bg-amber-400 py-2.5 w-full text-white rounded-xl text-center font-bold"
+              >Add To Cart</a
+            >
+          </div>
+
+          <div
+            class="flex flex-col items-center p-6 border-4 border-transparent shadow-lg bg-white rounded-2xl hover:border-amber-400 transition"
+          >
+            <img
+              src="./product3.jpg"
+              alt="Rolex"
+              class="w-full h-64 object-contain mb-4"
+            />
+            <h5 class="text-xl font-bold">Omega</h5>
+            <p class="text-2xl text-gray-700 mb-4">$2000</p>
+            <a
+              href="./sigin.html"
+              class="bg-amber-400 py-2.5 w-full text-white rounded-xl text-center font-bold"
+              >Add To Cart</a
+            >
+          </div>
+
+          <div
+            class="flex flex-col items-center p-6 border-4 border-transparent shadow-lg bg-white rounded-2xl hover:border-amber-400 transition"
+          >
+            <img
+              src="./product4.jpg"
+              alt="Rolex"
+              class="w-full h-64 object-contain mb-4"
+            />
+            <h5 class="text-xl font-bold">Rolex</h5>
+            <p class="text-2xl text-gray-700 mb-4">$25000</p>
+            <a
+              href="./sigin.html"
+              class="bg-amber-400 py-2.5 w-full text-white rounded-xl text-center font-bold"
+              >Add To Cart</a
+            >
+          </div>
+
+          <div
+            class="flex flex-col items-center p-6 border-4 border-transparent shadow-lg bg-white rounded-2xl hover:border-amber-400 transition"
+          >
+            <img
+              src="./product5.jpg"
+              alt="Rolex"
+              class="w-full h-64 object-contain mb-4"
+            />
+            <h5 class="text-xl font-bold">Cartier</h5>
+            <p class="text-2xl text-gray-700 mb-4">$20000</p>
+            <a
+              href="./sigin.html"
+              class="bg-amber-400 py-2.5 w-full text-white rounded-xl text-center font-bold"
+              >Add To Cart</a
+            >
+          </div>
+
+          <div
+            class="flex flex-col items-center p-6 border-4 border-transparent shadow-lg bg-white rounded-2xl hover:border-amber-400 transition"
+          >
+            <img
+              src="./product6.jpg"
+              alt="Rolex"
+              class="w-full h-64 object-contain mb-4"
+            />
+            <h5 class="text-xl font-bold">Autavia</h5>
+            <p class="text-2xl text-gray-700 mb-4">$25000</p>
+            <a
+              href="./sigin.html"
+              class="bg-amber-400 py-2.5 w-full text-white rounded-xl text-center font-bold"
+              >Add To Cart</a
+            >
+          </div>
+
+          <div
+            class="flex flex-col items-center p-6 border-4 border-transparent shadow-lg bg-white rounded-2xl hover:border-amber-400 transition"
+          >
+            <img
+              src="./product7.jpg"
+              alt="Rolex"
+              class="w-full h-64 object-contain mb-4"
+            />
+            <h5 class="text-xl font-bold">Casio</h5>
+            <p class="text-2xl text-gray-700 mb-4">$15000</p>
+            <a
+              href="./sigin.html"
+              class="bg-amber-400 py-2.5 w-full text-white rounded-xl text-center font-bold"
+              >Add To Cart</a
+            >
+          </div>
+
+          <div
+            class="flex flex-col items-center p-6 border-4 border-transparent shadow-lg bg-white rounded-2xl hover:border-amber-400 transition"
+          >
+            <img
+              src="./product8.jpg"
+              alt="Rolex"
+              class="w-full h-64 object-contain mb-4"
+            />
+            <h5 class="text-xl font-bold">IWC</h5>
+            <p class="text-2xl text-gray-700 mb-4">$25000</p>
+            <a
+              href="./sigin.html"
+              class="bg-amber-400 py-2.5 w-full text-white rounded-xl text-center font-bold"
+              >Add To Cart</a
+            >
+          </div>
+
+          <div
+            class="flex flex-col items-center p-6 border-4 border-transparent shadow-lg bg-white rounded-2xl hover:border-amber-400 transition"
+          >
+            <img
+              src="./product9.jpg"
+              alt="Rolex"
+              class="w-full h-64 object-contain mb-4"
+            />
+            <h5 class="text-xl font-bold">Heuer</h5>
+            <p class="text-2xl text-gray-700 mb-4">$20000</p>
+            <a
+              href="./sigin.html"
+              class="bg-amber-400 py-2.5 w-full text-white rounded-xl text-center font-bold"
+              >Add To Cart</a
+            >
+          </div>
+        </div>
+      </div>
+      <!-- About Us Section -->
+      <div
+        id="aboutus"
+        class="flex flex-col justify-center items-center px-6 py-12 md:py-20"
+      >
+        <h4 class="text-4xl md:text-5xl font-bold mb-8">About us</h4>
+
+        <div
+          class="abtcontent flex flex-col md:flex-row items-center gap-10 max-w-6xl"
+        >
+          <p
+            class="text-lg md:text-2xl leading-relaxed text-center md:text-left"
+          >
+            At <span class="font-bold">Prestige</span>, we specialize in
+            high-end timepieces for the discerning collector. Our commitment is
+            simple: providing the world's most prestigious watches with a
+            service that matches their quality. Discover the art of timekeeping
+            with us. Founded on the principle of uncompromising quality, we
+            curate timepieces where luxury meets tradition. Every dial we offer
+            tells a story of precision engineering and timeless design, ensuring
+            that excellence is always within your reach.
+          </p>
+          <!-- Image scales automatically and stays centered -->
+          <img
+            src="./aboutus.jpg"
+            alt="About Prestige"
+            class="w-full md:w-1/2 max-w-md  shadow-lg"
+          />
+        </div>
+      </div>
+
+      <!-- Footer Section -->
+      <footer
+        id="contactus"
+        class="flex flex-col md:flex-row items-center justify-between p-8 bg-neutral-800 gap-8"
+      >
+        <h1 class="text-4xl font-extrabold text-white">prestige</h1>
+
+        <div class="flex flex-col items-center md:items-end gap-4">
+          <p class="text-white text-lg">prestige@gmail.com</p>
+          <div class="flex gap-5">
+            <img
+              src="./logos--facebook.svg"
+              alt="Facebook"
+              class="w-8 h-8 hover:opacity-80 transition"
+            />
+            <img
+              src="./logos--tiktok-icon.svg"
+              alt="TikTok"
+              class="w-8 h-8 hover:opacity-80 transition"
+            />
+            <img
+              src="./skill-icons--instagram.svg"
+              alt="Instagram"
+              class="w-8 h-8 hover:opacity-80 transition"
+            />
+          </div>
+        </div>
+      </footer>
+    </div>
+    <!-- Modal Panel: Centered and responsive -->
+    <div
+      id="panelbtn"
+      class="fixed inset-0 flex items-center justify-center bg-black/70 z-50 p-4"
+    >
+      <div
+        class="relative w-full sm:w-11/12 md:w-3/5 lg:w-2/5 h-[90vh] rounded-xl shadow-2xl flex flex-col overflow-hidden"
+      >
+        <!-- Iframe: Occupies full container space -->
+        <iframe
+          src="./sigin.html"
+          class="w-full h-full border-none rounded-xl"
+          frameborder="0"
+        ></iframe>
+
+        <!-- Close button: Positioned top-right of the modal box -->
+        <button
+          id="closebtn"
+          class="absolute top-3 right-3 bg-amber-400 hover:bg-amber-500 text-black px-4 py-2 rounded-lg font-bold shadow-md transition-colors"
+        >
+          Close
+        </button>
+      </div>
+    </div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
