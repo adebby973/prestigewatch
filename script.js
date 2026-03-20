@@ -37,6 +37,10 @@ const panel = document.getElementById("panelbtn");
 const closeBtn = document.getElementById("closebtn");
 
 // Function to open modal
+function first(){
+  loader.style.display="flex"
+  panel.style.display="none"
+}
 function openModal() {
   panel.style.display = "block";
   home.classList.add("blur"); // add blur
