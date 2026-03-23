@@ -1,11 +1,13 @@
-window.addEventListener("load", () => {
-  const loader = document.getElementById("loader");
+// LOADER (page load)
+const loader = document.getElementById("loader");
 
-  // keep loader visible for 2 seconds
+window.addEventListener("load", () => {
   setTimeout(() => {
-    loader.style.display = "none"; // hide instantly
-  }, 2000); // 2 seconds
+    loader.style.display = "none";
+  }, 2000);
 });
+
+// BACKGROUND SLIDER
 const hero = document.getElementById("herosection");
 const images = [
   "display1.jpg",
@@ -25,36 +27,42 @@ function changeBackground() {
   currentIndex = (currentIndex + 1) % images.length;
 }
 
-// Change image every 5 seconds
 setInterval(changeBackground, 5000);
-
-// Initialize first image
 changeBackground();
 
+// MODAL + IFRAME
 const home = document.getElementById("home");
-const buttons = document.querySelectorAll(".collection"); // all collection buttons
+const buttons = document.querySelectorAll(".collection");
 const panel = document.getElementById("panelbtn");
 const closeBtn = document.getElementById("closebtn");
+const frame = document.getElementById("myframe");
 
-// Function to open modal
-function first(){
-  loader.style.display="flex"
-  panel.style.display="none"
-}
+// hide iframe until it loads (optional)
+frame.onload = function () {
+  console.log("iframe loaded");
+};
+
+// OPEN MODAL
 function openModal() {
-  panel.style.display = "block";
-  home.classList.add("blur"); // add blur
-  document.body.style.overflow = "hidden"; // prevent scrolling
+  panel.style.display = "flex"; // ✅ FIXED
+  home.classList.add("blur");
+  document.body.style.overflow = "hidden";
+
+  // load iframe ONLY when opened
+  frame.src = "./sigin.html";
 }
 
-// Function to close modal
+// CLOSE MODAL
 function closeModal() {
   panel.style.display = "none";
-  home.classList.remove("blur"); // remove blur
-  document.body.style.overflow = "auto"; // restore scrolling
+  home.classList.remove("blur");
+  document.body.style.overflow = "auto";
+
+  // stop iframe
+  frame.src = "";
 }
 
-// Attach click event to all collection buttons
+// BUTTON EVENTS
 buttons.forEach((button) => {
   button.addEventListener("click", function (e) {
     e.preventDefault();
@@ -62,5 +70,4 @@ buttons.forEach((button) => {
   });
 });
 
-// Attach click event to close button
 closeBtn.addEventListener("click", closeModal);
